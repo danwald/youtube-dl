@@ -5,28 +5,21 @@ from .common import InfoExtractor
 
 
 class MotorTrendIE(InfoExtractor):
-    _VALID_URL = r'https?://(?:www\.)?yourextractor\.com/watch/(?P<id>[0-9]+)'
+    _VALID_URL = r'https?://(?:www\.)?motortrendondemand\.com/(?:detail/)?(?:[\w-]+/)?(?P<id>[^/]+)/?(?:$|[?#])'
     _TEST = {
-        'url': 'https://yourextractor.com/watch/42',
-        'md5': 'TODO: md5 sum of the first 10241 bytes of the video file (use --test)',
+        'url': 'https://www.motortrendondemand.com/detail/the-story-of-ford-vs-ferrari/',
         'info_dict': {
-            'id': '42',
+            'id': '0_1j1evbz7',
             'ext': 'mp4',
-            'title': 'Video title goes here',
+            'title': 'AUTOBIOGRAPHY:  Season 1, Episode 9 - The Story of Ford vs Ferrari | MotorTrend',
             'thumbnail': r're:^https?://.*\.jpg$',
-            # TODO more properties, either as:
-            # * A value
-            # * MD5 checksum; start the string with md5:
-            # * A regular expression; start the string with re:
-            # * Any Python type (for example int or float)
-        }
+        },
     }
 
     def _real_extract(self, url):
         video_id = self._match_id(url)
         webpage = self._download_webpage(url, video_id)
 
-        # TODO more code goes here, for example ...
         title = self._html_search_regex(r'<h1>(.+?)</h1>', webpage, 'title')
 
         return {
