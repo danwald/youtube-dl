@@ -644,6 +644,7 @@ from .motherless import (
     MotherlessGroupIE
 )
 from .motorsport import MotorsportIE
+from .motortrend import MotorTrendIE
 from .movieclips import MovieClipsIE
 from .moviezine import MoviezineIE
 from .movingimage import MovingImageIE
