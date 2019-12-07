@@ -7,12 +7,12 @@ from .common import InfoExtractor
 class MotorTrendIE(InfoExtractor):
     _VALID_URL = r'https?://(?:www\.)?motortrendondemand\.com/(?:detail/)?(?:[\w-]+/)?(?P<id>[^/]+)/?(?:$|[?#])'
     _TEST = {
-        'url': 'https://www.motortrendondemand.com/detail/the-story-of-ford-vs-ferrari/',
+        'url': 'https://www.motortrendondemand.com/detail/the-story-of-ford-vs-ferrari/0_1j1evbz7/',
         'info_dict': {
             'id': '0_1j1evbz7',
-            'ext': 'mp4',
-            'title': 'AUTOBIOGRAPHY:  Season 1, Episode 9 - The Story of Ford vs Ferrari | MotorTrend',
-            'thumbnail': r're:^https?://.*\.jpg$',
+            'ext': 'unknown_video',
+            'title': 'The Story of Ford vs Ferrari',
+            #'thumbnail': 'https://cdnsecakmi.kaltura.com/p/2093031/sp/209303100/thumbnail/entry_id/0_1j1evbz7/def_height/480/def_width/640/'
         },
     }
 
@@ -26,6 +26,6 @@ class MotorTrendIE(InfoExtractor):
             'id': video_id,
             'title': title,
             'description': self._og_search_description(webpage),
-            'uploader': self._search_regex(r'<div[^>]+id="uploader"[^>]*>([^<]+)<', webpage, 'uploader', fatal=False),
-            # TODO more properties (see youtube_dl/extractor/common.py)
+            'url': url,
+            #'thumbnail': '',
         }
