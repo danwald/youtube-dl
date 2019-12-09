@@ -12,9 +12,13 @@ class MotorTrendIE(InfoExtractor):
             'id': '0_1j1evbz7',
             'ext': 'unknown_video',
             'title': 'The Story of Ford vs Ferrari',
-            #'thumbnail': 'https://cdnsecakmi.kaltura.com/p/2093031/sp/209303100/thumbnail/entry_id/0_1j1evbz7/def_height/480/def_width/640/'
+            'description': 'md5:8c26e5433046a58967ed7e4ea2e6f484',
         },
-    }
+        'params': {
+            'skip_download': True,
+        },
+        'expected_warnings': ['Failed to download m3u8 information'],
+}
 
     def _real_extract(self, url):
         video_id = self._match_id(url)
