@@ -7,7 +7,7 @@ from .common import InfoExtractor
 class MotorTrendIE(InfoExtractor):
     _VALID_URL = r'https?://(?:www\.)?motortrendondemand\.com/(?:detail/)?(?:[\w-]+/)?(?P<id>[^/]+)/?(?:$|[?#])'
     _TEST = {
-        'url': 'https://www.motortrendondemand.com/detail/the-story-of-ford-vs-ferrari/0_1j1evbz7/',
+        #'url': 'https://www.motortrendondemand.com/detail/the-story-of-ford-vs-ferrari/0_1j1evbz7/',
         'info_dict': {
             'id': '0_1j1evbz7',
             'ext': 'unknown_video',
@@ -18,7 +18,7 @@ class MotorTrendIE(InfoExtractor):
             'skip_download': True,
         },
         'expected_warnings': ['Failed to download m3u8 information'],
-}
+    }
 
     def _real_extract(self, url):
         video_id = self._match_id(url)
